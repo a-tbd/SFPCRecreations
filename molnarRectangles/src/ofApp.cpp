@@ -12,6 +12,10 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    /*
+     Recreation of Vera Molnar piece:
+     https://image.invaluable.com/housePhotos/artcurial/23/301023/H1118-L22105038.jpg
+     */
     
     ofSeedRandom(mouseX);
     
