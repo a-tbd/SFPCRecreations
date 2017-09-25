@@ -26,29 +26,35 @@ void ofApp::draw(){
     ofNoFill();
     
     // char cannot be narrowed? <-- from previous iteration
-    struct Colors
-    {
-        int red;
-        int green;
-        int blue;
-    };
-    Colors colors[3];
-    // orange
-    colors[0].red = 170;
-    colors[0].green = 101;
-    colors[0].blue = 10;
-    
-    // red
-    colors[1].red = 79;
-    colors[1].green = 19;
-    colors[1].blue = 19;
-    
-    // blue
-    colors[2].red = 23;
-    colors[2].green = 50;
-    colors[2].blue = 94;
+//    struct Colors
+//    {
+//        int red;
+//        int green;
+//        int blue;
+//    };
+//    Colors colors[3];
+//    // orange
+//    colors[0].red = 170;
+//    colors[0].green = 101;
+//    colors[0].blue = 10;
+//    
+//    // red
+//    colors[1].red = 79;
+//    colors[1].green = 19;
+//    colors[1].blue = 19;
+//    
+//    // blue
+//    colors[2].red = 23;
+//    colors[2].green = 50;
+//    colors[2].blue = 94;
 
-    // attempt #3
+    
+    ofColor myColors[3];
+    
+    myColors[0] = ofColor(170,101,10);
+    myColors[1] = ofColor(79,19,19);
+    myColors[2] = ofColor(23,50,94);
+    
     for (int i=0; i<9;i++){
         for (int j=0;j<6;j++){
             // calculate number of rectangles to draw in each column
@@ -68,7 +74,8 @@ void ofApp::draw(){
             } else {
                 random_color = ofRandom(0,3);
             }
-            ofSetColor(colors[random_color].red, colors[random_color].green, colors[random_color].blue);
+//            ofSetColor(colors[random_color].red, colors[random_color].green, colors[random_color].blue);
+            ofSetColor( myColors[ (int) ofRandom(0,3)]);
             for (int k=0;k<repeat;k++){
                 square(i,j);
             }
@@ -79,14 +86,13 @@ void ofApp::draw(){
 int square(int a, int b) {
     ofSetPolyMode(OF_POLY_WINDING_NONZERO);
     ofBeginShape();
-        int start_x = 100+a*100+ofRandom(-5,5);
-        int start_y = 100+b*100+ofRandom(-5,5);
+        int start_x = 100+a*100+ofRandom(-10,10);
+        int start_y = 100+b*100+ofRandom(-10,10);
         ofVertex(start_x, start_y);
-        ofVertex(start_x+ofRandom(-20,20), start_y+80+ofRandom(-20,20));
+        ofVertex(start_x+ofRandom(-20,20), start_y+80+ofRandom(-10,10));
         ofVertex(start_x+80+ofRandom(-20,20), start_y+80);
-        ofVertex(start_x+80, start_y+ofRandom(-20,20));
-        ofVertex(start_x, start_y);
-    ofEndShape();
+        ofVertex(start_x+80, start_y+ofRandom(-10,10));
+    ofEndShape(true);
 }
 
 //--------------------------------------------------------------
