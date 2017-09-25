@@ -25,34 +25,13 @@ void ofApp::draw(){
     ofSetColor(0);
     ofNoFill();
     
-    // char cannot be narrowed? <-- from previous iteration
-//    struct Colors
-//    {
-//        int red;
-//        int green;
-//        int blue;
-//    };
-//    Colors colors[3];
-//    // orange
-//    colors[0].red = 170;
-//    colors[0].green = 101;
-//    colors[0].blue = 10;
-//    
-//    // red
-//    colors[1].red = 79;
-//    colors[1].green = 19;
-//    colors[1].blue = 19;
-//    
-//    // blue
-//    colors[2].red = 23;
-//    colors[2].green = 50;
-//    colors[2].blue = 94;
-
-    
     ofColor myColors[3];
     
+    //red
     myColors[0] = ofColor(170,101,10);
+    //orange
     myColors[1] = ofColor(79,19,19);
+    //blue
     myColors[2] = ofColor(23,50,94);
     
     for (int i=0; i<9;i++){
@@ -74,7 +53,7 @@ void ofApp::draw(){
             } else {
                 random_color = ofRandom(0,3);
             }
-//            ofSetColor(colors[random_color].red, colors[random_color].green, colors[random_color].blue);
+
             ofSetColor( myColors[ (int) ofRandom(0,3)]);
             for (int k=0;k<repeat;k++){
                 square(i,j);
