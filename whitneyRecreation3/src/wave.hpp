@@ -19,8 +19,11 @@ class Wave {
     void update();
     void draw();
     
-    float x;
-    float y;
+    float xStart;
+    float yStart;
+    float xUpdate;
+    float yUpdate;
+    
     float time;
     
     Wave();

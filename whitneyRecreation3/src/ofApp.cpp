@@ -28,22 +28,12 @@ void ofApp::draw(){
     
     float timeSinceLastCreation = ofGetElapsedTimef() - lastCreationTime;
     float prev_y = 300.0;
-    
-    creationDelay = 3;
+    int total_waves = 0;
     
     if (timeSinceLastCreation > creationDelay){
         
-//        float x_2, y_2;
-//        for (int i=0;i<200;i++) {
-//            x_2 = (float)-10.0 + i*(time-lastCreationTime)*5;
-//            y_2 = (float)300.0 + 250 * sin(i*.05-PI/2);
-//            ofDrawCircle(x_2, y_2, 5);
-//            prev_y = y_2;
-//        }
-        
-        for (int i=0; i<NWAVES; i++) {
-            myWaves[i].draw();
-        }
+        myWaves[total_waves % 20].draw();
+        total_waves += 1;
         
         lastCreationTime = ofGetElapsedTimef();
     }

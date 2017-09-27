@@ -11,20 +11,19 @@ Wave::Wave(){
 }
 
 void Wave::setup(){
-    x = 0;
-    y = 0;
+    xUpdate = xStart;
+    yUpdate = yStart;
     
     time = ofGetElapsedTimef();
 }
 
 void Wave::update(){
-    for (int i=0;i<200;i++) {
-        float currentTime = ofGetElapsedTimef();
-        x = (float)-10.0 + i*(currentTime-time)*5;
-        y = (float)300.0 + 250 * sin(i*.05-PI/2);
-    }
 }
 
 void Wave::draw(){
-    ofDrawCircle(x, y, 10);
+    for (int i=0;i<200;i++) {
+        xUpdate = (float)i*(ofGetElapsedTimef()-time)*5;
+        yUpdate = (float)300.0 + 250 * sin(i*.05-PI/2);
+        ofDrawCircle(xUpdate, yUpdate, 5);
+    }
 }
