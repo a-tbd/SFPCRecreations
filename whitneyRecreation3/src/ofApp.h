@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "wave.hpp"
 
-#define NWAVES 20
+//#define NWAVES 20
 
 class ofApp : public ofBaseApp{
 
@@ -25,8 +25,12 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
     float lastCreationTime;
-    float creationDelay;
+    float creationDelay = 3;
     
-    Wave myWaves[NWAVES];
+    int total_waves = 0;
+    
+    vector < Wave > myWaves;
+//    Wave myWaves[NWAVES];
+    
 		
 };

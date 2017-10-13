@@ -11,10 +11,11 @@ Wave::Wave(){
 }
 
 void Wave::setup(){
-    xUpdate = xStart;
-    yUpdate = yStart;
+    xUpdate = 0;
+    yUpdate = 0;
     
     time = ofGetElapsedTimef();
+    
 }
 
 void Wave::update(){
@@ -22,8 +23,11 @@ void Wave::update(){
 
 void Wave::draw(){
     for (int i=0;i<200;i++) {
-        xUpdate = (float)i*(ofGetElapsedTimef()-time)*5;
-        yUpdate = (float)300.0 + 250 * sin(i*.05-PI/2);
-        ofDrawCircle(xUpdate, yUpdate, 5);
+        float circle_freq = ofMap(i, 0, 200, 0, 2*PI);
+        float revolutions = ofMap(ofGetMouseX(), 0, ofGetWidth(), 0, 3);
+        float speed = (float)ofGetWidth()/600.0 * revolutions;
+        xUpdate = ofGetWidth()/2 + 250 * sin(circle_freq) + i*(ofGetElapsedTimef()-time)*speed;
+        yUpdate = 300.0 -          250 * cos(circle_freq);
+        ofDrawCircle((int)xUpdate % ofGetWidth(), yUpdate, 5);
     }
 }
