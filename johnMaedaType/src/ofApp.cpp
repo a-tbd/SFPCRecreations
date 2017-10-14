@@ -38,7 +38,7 @@ void ofApp::draw(){
 //        draw_height += box_height;
 //    }
     
-    
+    // need to scale the part that gets added to the draw_height...it needs to be scaled too
     float draw_height = 0;
     
     for (int i=0; i<100; i++) {
@@ -47,21 +47,24 @@ void ofApp::draw(){
         
         float box_height = (ofGetHeight() - draw_height) / 6;
         
-        float scale_w = ofMap(box_width, 0, ofGetWidth(), 0, 1);
-        float scale_h = ofMap(box_height, 0, ofGetHeight(), 0, 1);
+        float scale_w = ofMap(box_width, 0, ofGetWidth(), 0, 1); // why do I need to multiply these by two?
+        float scale_h = ofMap(box_height, 0, ofGetHeight()/3, 0, 1);
         
         ofPushMatrix();
         ofTranslate(draw_width, draw_height);
         ofScale(scale_w, scale_h, 1);
         
-        //ofSetColor(255-(i+1)*10, 0,0);
+        //ofSetColor(255 -(i+1)*10, 0,0);
         
         //ofDrawRectangle(0, 0, box_width, box_height);
-        myFont.drawString(text, box_width, box_height);
+        myFont.drawString(text, 1, 1);
         
         draw_height += box_height;
         ofPopMatrix();
     }
+
+    
+
 }
 
 
