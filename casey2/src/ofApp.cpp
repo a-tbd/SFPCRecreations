@@ -3,7 +3,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    myFont.load("lg.otf", 150, true, true, true);
+    myFont.load("lg.otf", 300, true, true, true);
     text = "drink\nblood";
     rect = myFont.getStringBoundingBox(text, 1, 1);
     myFont.setLineHeight(rect.y-2);
@@ -18,7 +18,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofBackground(0);
-    ofTranslate(ofGetWidth()/2-100, ofGetHeight()/2+rect.y*.5);
+    ofTranslate(rect.x/2+ofGetWidth()/4, -rect.y/2+ofGetHeight()/4);
     cout << rect.x << endl; // why is the width 8?
     
     vector < ofPolyline > lines;
@@ -50,10 +50,9 @@ void ofApp::draw(){
                 float temp_y = temp[k].y;
                 
                 // animate letter division w/ sine wave?
-                //float y_wave = rect.y/2 + sin(circle_freq);
-                //float circle_freq = ofMap(k, 0, temp.size(), 0, 2*PI);
+                float y_wave = rect.y/2 + 15*sin(i + ofGetElapsedTimef());
                 
-                float y_wave = rect.y + time*10;
+                //float y_wave = rect.y-100 + time*10;
                 
                 // if the y value is greater than half the height, add point white path
                 // also add a point along the separation line to the red path
