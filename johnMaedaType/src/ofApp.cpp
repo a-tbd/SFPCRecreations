@@ -19,7 +19,7 @@ void ofApp::draw(){
     ofSetColor(0);
     
     // store text as string and get bounding box
-    string text = "HELLO";
+    string text = "MAEDA";
     ofRectangle rect = myFont.getStringBoundingBox(text, 0, 0);
     
 //    // working example of shrinking rectangles
@@ -38,12 +38,12 @@ void ofApp::draw(){
 //        draw_height += box_height;
 //    }
     
-    // need to scale the part that gets added to the draw_height...it needs to be scaled too
-    float draw_height = 0;
+    // why isn't this responsive?
+    float draw_height = 8;
     
     for (int i=0; i<100; i++) {
-        float box_width = ofGetWidth() * powf(.8333, i);
-        float draw_width = (ofGetWidth() - box_width) / 2;
+        float box_width = ofGetWidth() * powf(.8333, i)/2;
+        float draw_width = ofGetWidth()/2 - box_width;
         
         float box_height = (ofGetHeight() - draw_height) / 6;
         
