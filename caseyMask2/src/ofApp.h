@@ -35,8 +35,9 @@ class ofApp : public ofBaseApp{
     ofxPanel panel;
     ofParameterGroup group;
     ofParameter < float > radius;
-    ofParameter < float > color;
-    ofParameter < float > color2;
+    ofParameter < float > red;
+    ofParameter < float > green;
+    ofParameter < float > blue;
     ofParameter < float > yPos;
 		
 };

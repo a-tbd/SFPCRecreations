@@ -20,8 +20,9 @@ void ofApp::setup(){
     // set parameters
     panel.setup();
     group.add(radius.set("radius", 150, 0, 200));
-    group.add(color.set("green", 0, 0, 1.5));
-    group.add(color2.set("pink",0,0,1.5));
+    group.add(red.set("red",0,0,1));
+    group.add(green.set("green", 0, 0, 1));
+    group.add(blue.set("blue",0,0,1));
     group.add(yPos.set("y-position", ofGetHeight()*.7, 0, ofGetHeight()));
     
     panel.add(group);
@@ -47,9 +48,9 @@ void ofApp::draw(){
     ofSetCircleResolution(100);
     
     for (int i = 0; i < 700; i++){
-                ofSetColor( 255 - 255 * sin(i * color+0.01),
-                            127 * sin(i * color+0.011),
-                           127 * sin(i * color2+0.012));
+                ofSetColor( 255 - abs(255 * sin(i * red+0.01)),
+                            127 * sin(i * green+0.011),
+                           127 * sin(i * blue+0.012));
         ofDrawCircle(200 + i*2, yPos + xAmp * sin(i*0.03 + time*1.4), radius);
         
     }
