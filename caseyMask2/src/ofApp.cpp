@@ -6,16 +6,7 @@ void ofApp::setup(){
     color_fbo.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA, 4);
     text_fbo.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA, 4);
     
-    // load small and large size font (is there a way to change font
-    // size without laoding separately?
-    myFont_last.setLetterSpacing(.9);
-    myFont_small.setLetterSpacing(.9);
-    myFont_small.load("lg.otf", 110, true, true, true);
-    text_first = "JACQUELINE";
-    myFont_last.load("lg.otf", 200, true, true, true);
-    text_last = "CASEY";
-    rect_first = myFont_small.getStringBoundingBox(text_first, 1, 1);
-    rect_last = myFont_last.getStringBoundingBox(text_last, 1, 1);
+    img.load("casey.jpg");
     
     // set parameters
     panel.setup();
@@ -59,12 +50,8 @@ void ofApp::draw(){
     // set the alpha layer as text
     text_fbo.begin();
     ofClear(0,0,0,255);
-    ofSetColor(255);
-    myFont_small.setLineHeight(rect_first.y-2);
-    myFont_small.drawString(text_first, (ofGetWidth()-rect_first.width)/2, (ofGetHeight()-(rect_first.height+rect_last.height))/2+rect_first.height);
-    
-    myFont_last.setLineHeight(rect_last.y-2);
-    myFont_last.drawString(text_last, (ofGetWidth()-rect_first.width)/2, (ofGetHeight()-(rect_first.height+rect_last.height))/2+rect_first.height+rect_last.height);
+
+    img.draw((ofGetWidth() - img.getWidth())/2., (ofGetHeight() - img.getHeight())/2.);
     text_fbo.end();
     
     color_fbo.draw(0,0);

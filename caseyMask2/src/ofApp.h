@@ -25,12 +25,7 @@ class ofApp : public ofBaseApp{
     ofFbo color_fbo;
     ofFbo text_fbo;
     
-    ofTrueTypeFont myFont_small;
-    ofTrueTypeFont myFont_last;
-    string text_first;
-    string text_last;
-    ofRectangle rect_first;
-    ofRectangle rect_last;
+    ofImage img;
     
     ofxPanel panel;
     ofParameterGroup group;
