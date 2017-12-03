@@ -20,3 +20,6 @@ Recreation based on John Maeda's posters
 
 Random sketch.  Very very loosely based on Ken Knowlton.
 ![](https://github.com/a-tbd/SFPCRecreations/blob/master/pixelSynthesize/circles.gif)
+
+Random sketch. Figuring out Maeda.
+![](https://github.com/a-tbd/SFPCRecreations/blob/master/gradientRectangles/rectangles.gif)
