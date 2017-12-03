@@ -17,3 +17,6 @@ Third recoded project which also showed at the Microsoft event.  Graphics by ZZ 
 
 Recreation based on John Maeda's posters
 ![maeda recoded](https://github.com/a-tbd/SFPCRecreations/blob/master/johnMaedaType/maeda.png)
+
+Random sketch.  Very very loosely based on Ken Knowlton.
+![](https://github.com/a-tbd/SFPCRecreations/blob/master/pixelSynthesize/circles.gif)
